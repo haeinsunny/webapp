@@ -7,7 +7,7 @@ public class Morning1016{
 
         for(int i=0; i<5; i++){
             for(int j=0; j<5; j++){
-                regAry[j][i] = cnt++;
+                regAry[i][j] = cnt++;
             }
         }
         for(int i=0; i<5; i++){
