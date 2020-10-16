@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+   
+    <body>
+        <form>
+            <h2>회원가입</h2>
+            <table border='1'>
+                <tr>
+                    <th colspan='2'>회원기본정보</th>
+                </tr>
+                <th>아이디</th>
+                <th align="left"><input type="text" name="아이디" size="15" required>4~12자의 영문대소문자와 숫자로만 입력</th>
+                </tr>
+                <tr>
+                    <th>비밀번호</th>
+                    <th align="left"><input type="password" name="비밀번호" size="15" required>4~12자의 영문대소문자와 숫자로만 입력</th>
+                </tr>
+    
+                <tr>
+                    <th>비밀번호확인</th>
+                    <th align="left"><input type="text" name="메일주소" size="15" required></th>
+                </tr>
+                <tr>
+                    <th>메일주소</th>
+                    <th align="left"><input type="text" name="메일주소" size="15" required>예) id@damain.com</th>
+                </tr>
+                <tr>
+                    <th>이름</th>
+                    <th align="left"><input type="text" name="이름" size="15" required></th>
+                </tr>
+                <tr>
+                   <p> <th colspan='2'>개인신상정보</th></p>
+                </tr>
+                <tr>
+                    <th>주민등록번호</th>
+                    <th align="left"><input type="text" name="주민번호" size="7" required> -
+                        <input type="text" name="주민번호" size="7" required> 예) 1234567-1234567</th>
+                </tr>
+                <tr>
+                    <th>생일</th>
+                    <th align="left"><input type="date" name="생일" min="1900-01-01" max="2020-12-31"></th>
+                </tr>
+                <tr>
+                    <th>성별</th>
+                    <th align="left"><input type="radio" name="sex" value="male" checked>남자
+                        <input type="radio" name="sex" value="female">여자</th>
+                </tr>
+                <tr>
+                    <th>관심분야</th>
+                    <th>
+                        <input type="checkbox" name="subject" value="컴퓨터" checked>컴퓨터
+                        <input type="checkbox" name="subject" value="인터넷">인터넷
+                        <input type="checkbox" name="subject" value="여행">여행
+                        <input type="checkbox" name="subject" value="영화">영화감상
+                        <input type="checkbox" name="subject" value="음악">음악감상
+                    </th>
+                </tr>
+                <tr>
+                    <th>관심분야</th>
+                    <th><textarea rows="5" cols="50">여기에 작성해주세요.</textarea></th>
+                </tr>
+            </table>
+        </form>
+</body>
+</html>
