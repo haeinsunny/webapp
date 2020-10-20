@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>basic.html</title>
+    <link rel="stylesheet" href="mystyle.css">
+    <!--스타일시트를 외부파일로 만들기-->
+    <style>
+        div {
+            width: 80px;
+            height: 80px;
+            background: yellow;
+            border: 1px solid red;
+            color: white;
+        }
+
+        div#div1 {
+            background-color: aquamarine;
+            border-color: aqua;
+            border-style: solid;
+            border-width: 2px;
+        }
+
+        div.div {
+            background-color: chocolate;
+            border-color: brown;
+            border-style: dotted;
+            border-width: 2px;
+        }
+
+        span {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            background-color: blueviolet;
+            padding-left: 20px;
+            padding-top: 10px;
+            border: 2px rgb(255, 0, 179) dotted;
+
+        }
+
+        li {
+            color: blue;
+        }
+
+        ul>li {
+            background-color: chartreuse;
+        }
+
+        ol>li {
+            background-color: greenyellow;
+        }
+
+        a[href^=https] {
+            color: orangered;
+        }
+    </style>
+    <!--내부방식. 태그에 적용한 값이 없으면 얘로 적용-->
+</head>
+
+<body>
+    <div style="background: aqua; width: 100px; height: 100px;"></div>
+    <!--인라인스타일: 태그안에다 요소를 직접 주는것-->
+    <div id="div1">div2</div>
+    <!--인라인 스타일이 제일 우선 적용됨-->
+    <div class="div1">div3</div>
+    <!--외부방식 적용되고 지정안된 부분은 이전스타일에 지정한값으로 적용한다-->
+
+
+
+    <span>span1</span>
+    <span>span2</span>
+    <span>span3</span>
+
+    <span>1</span>
+    <span>2</span>
+    <span>3</span>
+    <span>4</span>
+    <span>5</span>
+    <span>6</span>
+    <span>7</span>
+    <span>8</span>
+    <span>9</span>
+    <span>10</span>
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+
+    <ol>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ol>
+
+    <a href="https://www.daum.net">Daum</a>
+    <a href="http://www.naver.com">Naver</a>
+    <a href="http://www.google.co.kr">Google</a>
+    <a>Yahoo</a>
+</body>
+
+</html>

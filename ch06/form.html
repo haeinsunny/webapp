@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form.html</title>
+    <style>
+    div{
+        border-radius: 5px;
+        background-color: orange;
+        padding: 20px;
+        margin-right: 20%;
+    
+
+    }
+    input[type=submit]{
+        font-size: 30px;
+        background-color: green;
+        color: white;
+        padding: 5px 20px;
+        margin: 5px 0;
+        border-radius: 5px;
+        
+
+    }
+    input[type=submit]:hover{
+        background-color: darkgreen;
+        
+    }
+    input[type=text]{
+        width: 60%;
+        display: block;
+        padding: 10px 15px;
+        border-radius: 5px;
+        border-style: hidden;
+        margin: 5px 0;
+    }
+    select[id=country]{
+        display: block;
+        width: 60%;
+        padding: 10px 15px;
+        border-radius: 5px;
+        border-style: hidden;
+        margin: 5px 0;       
+    }
+    #fname{
+        position: relative;
+        left: 3%;
+    }
+    #lname{
+        position: relative;
+        left: 3%;
+    }
+    #country{
+        position: relative;
+        left: 3%;
+    }
+    input[type=submit]{
+        position: relative;
+        left: 3%;
+    }
+    </style>
+</head>
+<body>
+    <h3>Form Tag</h3>
+    <div>
+        <form action="">
+            <label for="fname">FirstName</label>
+            <input type="text" id="fname" name="firstName" placeholder="Your name... ">
+            <p></p>
+            <label for="lname">LastName</label>
+            <input type="text" id="lname" name="lastName" placeholder="Your last name... ">
+            <p></p>
+            <label for="country">Country</label>
+            <select id="country" name="country">
+                <option value="">Korea</option>
+                <option value="">China</option>
+                <option value="">Japan</option>
+            </select>
+            <p></p>
+            <input type="submit" value="ok">
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,7 @@
+/* mystyle.css */
+div{
+    background: beige;
+    border-color: bisque;
+    border-width: 3px;
+    border-style: dashed;
+}

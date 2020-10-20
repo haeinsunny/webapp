@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pesudo_class.html</title>   <!--가상선택자-->
+</head>
+<style>
+    a:link{
+        background-color: aquamarine;
+    }   
+    a:visited{
+        background-color: blueviolet;
+    }
+    a:active{
+        background-color: pink;
+    }
+    a:hover{
+        background-color: yellow;
+    }   
+    a:focus{
+        background-color: orangered;
+    }
+    td{
+        display:block;
+        background-color: yellow;
+    }
+    td:nth-child(3){
+        background-color: pink;
+    }
+    td:nth-of-type(even){
+        background-color: blueviolet;
+    }
+    td:nth-of-type(3n){
+        background-color: aquamarine;
+    }
+    td:first-child{
+        color: orangered;
+    }
+</style>
+<body>
+    <a href="basic.html">Basic</a>
+    <table>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+        </tr>
+    </table>
+</body>
+</html>
