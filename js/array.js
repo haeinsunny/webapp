@@ -112,17 +112,15 @@ for (let str1 of strAry1) {
 }
 table.append(tr);
 
-
 for (let per of persons) {
     let tr1 = document.createElement('tr');
     let td = document.createElement('td');
     td.innerHTML = per.name;
+    tr1.append(td);
     let td1 = document.createElement('td');
     td1.innerHTML = per.age;
-    tr1.append(td);
     tr1.append(td1);
     table.append(tr1);
 }
-
 show.append(table);
 console.log(table);
