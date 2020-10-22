@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .item1 {
+            grid-area: header;
+        }
+
+        .item2 {
+            grid-area: Navigation
+        }
+
+        .item3 {
+            grid-area: ContentL;
+        }
+
+        .item4 {
+            grid-area: Main;
+        }
+
+        .item5 {
+            grid-area: ContentR;
+        }
+
+        .item6 {
+            grid-area: Footer;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-areas:
+                'header header header header header header'
+                'Navigation Navigation Navigation Navigation Navigation Navigation'
+                'ContentL Main Main Main Main ContentR'
+                'Footer Footer Footer Footer Footer Footer';
+            grid-gap: 10px;
+            background-color: palevioletred;
+            padding: 10px;
+        }
+
+        .grid-container>div {
+            background-color: pink;
+            padding: 10px 5px;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        .item1 {
+            height: 100px;
+        }
+
+        .item2 {
+            height: 60px;
+        }
+
+        .item3 {
+            height: 500px;
+        }
+
+        .item5>p {
+            font-size: 13px;
+        }
+        .item3>ul{
+            font-size: 20px;
+            padding-right: 40px;
+        }
+
+        .item6 {
+            height: 80px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="grid-container">
+        <div class="item1">Header</div>
+        <div class="item2">Navigation Menu</div>
+        <div class="item3">
+            <ul>
+                <br><li>ipsum</li></br>
+                <br><li>deulsum</li></br>
+                <br><li>nalsum</li></br>
+              </ul>
+        
+
+        </div>
+        <div class="item4">Main Content</div>
+        <div class="item5">
+            <p><a href="https://developer.mozilla.org/ko/docs/Web/HTML/Element">
+                    <input type="image" src="../images/html.bmp"></a></p>
+            <p>위의 이미지를 누르면 이동합니다.</p>
+        </div>
+        <div class="item6">Footer</div>
+    </div>
+
+</body>
+
+</html>
