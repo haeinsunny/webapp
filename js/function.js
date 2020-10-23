@@ -17,8 +17,7 @@ let multiFunc = function (v1, v2) {
     return num1 * num2;
 }
 // console.log(multiFunc)  //: multiFunc의 정의를 보여줌
-console.log(multiFunc(3,5)) //()를 붙이면 실행하라는 뜻
-
+console.log(multiFunc(3,5)) //()를 붙이면 실행하라는 뜻w
 
 function callBackFunc(func, val1) { //func은 직접 계산이되거나 매개값으로 쓰여질수 있다
     return func(5, 7) + val1;
