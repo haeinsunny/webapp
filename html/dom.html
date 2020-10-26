@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DOM Tutorial</title>
+</head>
+
+<body>
+    <h1>DOM Lesson two</h1>
+    <p>Hello world!</p>
+    <script>
+        console.log(document.body.childNodes[1].childNodes[0].nodeValue = 'Dom Lesson Two');
+        console.log(document.body.childNodes);
+        console.log(document.body.childNodes[3].childNodes[0].nodeValue = 'Good Morning');
+
+        let div = document.createElement('div');
+        div.className = 'row';
+        div.setAttribute('id', 'row')
+        let text = document.createTextNode('Hello, World');
+        div.append(text);
+        console.log(div);
+
+        let $body = document.getElementsByTagName('p');
+        // $body[0].after(div);
+        $body[0].before(div);
+
+        let table = document.createElement('table');
+        table.setAttribute('border', '1');
+        $body[0].after(table);
+
+        let tr = document.createElement('tr');
+        let information = ['이름', '나이', '직업'];
+        for (info of information) {
+            let th = document.createElement('th');
+            th.innerHTML = info;
+            tr.append(th)
+        }
+        let tr1 = document.createElement('tr');
+        let person = ['홍길동', '16', '학생']
+        for (per0 of person) {
+            let td = document.createElement('td');
+            td.innerHTML = per0;
+            tr1.append(td);
+        }
+        table.append(tr, tr1);
+        console.log(table)
+        console.log(document.body.childNodes);
+
+        let per1 = {
+            name: 'Kim',
+            age: 26,
+            job: 'student'
+        }
+
+        let tableTag = document.getElementsByTagName('table')
+        let table1= document.createElement('table');
+        table1.setAttribute('border','2');
+        tableTag[0].after(table1);
+        let tr2 = document.createElement('tr');
+        let persons = [per1, per2];
+        for (field in per1) {
+            let th1 = document.createElement('th');
+            let text = document.createTextNode(field);
+            th1.append(text);
+            tr.append(th1);
+        }
+        table1.append(tr2);
+        for(field in per1){
+            let td1 = document.createElement('td1')
+            
+        }
+    </script>
+</body>
+
+</html>

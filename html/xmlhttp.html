@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xmlhttp.html</title>
+</head>
+
+<body>
+    <div id="show"></div>
+    <script>
+        //가지고 온 데이터들을 테이블에 뿌리기 
+        //Ajax:비동기 처리방식 (처리하는 방식이 비동기 방식. XMLHttpRequest() 얘가 이 처리기능을 맡아서 함)
+        // console.log('first');
+        let xhtp = new XMLHttpRequest();
+
+        xhtp.onreadystatechange = function () { //on:뭔가를 실행할때 상태를 바꿔주는것
+            // console.log(xhtp.readyState, xhtp.status, xhtp.responseText);
+            let show = document.getElementById('show');
+            if (xhtp.readyState == 4 && xhtp.status == 200) { //4단계까지 실행되고 200정상으로 열렸을때
+                // console.log('second');
+                let persons = JSON.parse(xhtp.responseText); //위의 값이 정상일때, 결과값을 가져와라
+                // console.log(persons);
+                console.log(persons);
+                let table = document.createElement('table');
+                table.setAttribute('border', '1');
+
+                for (let i = 0; i < persons.length; i++) {
+                    // let tr = document.createElement('tr');
+                    // tr.setAttribute('id', 'row');
+
+                    if (i == 0) {
+                        let tr = document.createElement('tr');
+                        tr.setAttribute('id', 'row');
+                        for (field in persons[i]) {
+                            let th = document.createElement('th');
+                            let text = document.createTextNode(persons[i][field]);
+                            th.append(text);
+                            tr.append(th);
+                        }
+                    } else(field in persons[i])
+                    // for (field in persons[i]) {
+                    let tr1 = document.createElement('tr');
+                    tr1.setAttribute('id', 'row');
+                    let td = document.createElement('td');
+                    let text = document.createTextNode(persons[i][field]);
+                    td.append(text);
+                    tr1.append(td);
+
+            }
+            table.append(tr, tr1);
+        }
+        show.append(table);
+        console.log(table);
+
+        }
+        xhtp.open('get', 'MOCK_DATA.json'); //open메소드로 MOCK_DATA.json파일을 요청한다
+        xhtp.send();
+
+
+        // console.log('last');
+    </script>
+</body>
+
+</html>

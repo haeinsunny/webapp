@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type='text' name="name" value="Hong"><br>
+    <input type='text' name="age" value="15"><br>
+    <input type='text' name="job" value="student"><br>
+
+    <button id="btn">입력</button><br>
+
+    <div style="height: 10px;"></div>
+
+    <table id="tbl" border="1">
+        <tr>
+            <th>이름</th>
+            <th>나이</th>
+            <th>직업</th>
+            <th>기능</th>
+        </tr>
+        <!-- <tr>    //을 스크립트로 만들어보자
+            <td>Hong</td>
+            <td>15</td>
+            <td>student</td>
+        </tr> -->
+    </table>
+    <script>
+        document.getElementById('btn');
+        // btn.onclick = function(){
+        // }
+        btn.addEventListener('click', myCallBackFunc); //click을 하면 function myCallBackFunc()을 실행하세요
+        btn.addEventListener('mouseover', myMouseOverFunc);
+        btn.addEventListener('mouseout', myMouseOutFunc);
+
+        function myMouseOverFunc() {
+
+        }
+
+        function myMouseOutFunc() {}
+
+        function myCallBackFunc() {
+            let inputs = document.getElementsByTagName('input');
+            let name = inputs[0].value;
+            let age = inputs[1].value;
+            let job = inputs[2].value;
+
+            if (name == null || name == '') { //빈칸을 입력하려는경우 방지
+                window.alert('이름을 입력하세요')
+                return; //return: 비정상적인 값이 들어왔을때 종료시키는 구문
+            }
+            if (!age) {
+                window.alert('나이를 입력하세요')
+                return;
+            }
+            if (!job) {
+                window.alert('직업을 입력하세요')
+                return;
+            }
+
+            let tr = document.createElement('tr');
+            // name생성
+            let td = document.createElement('td');
+            text = document.createTextNode(name);
+            td.append(text);
+            tr.append(td);
+            // age생성
+            td = document.createElement('td');
+            text = document.createTextNode(age);
+            td.append(text);
+            tr.append(td);
+            // job생성
+            td = document.createElement('td');
+            text = document.createTextNode(job);
+            td.append(text);
+            tr.append(td);
+            //버튼생성
+            let btn = document.createElement('button');
+            text = document.createTextNode('Del'); //버튼에 'del'이라는 text생성
+            btn.onclick = function () {
+                this.parentNode.previousSibling.previousSibling.childNodes[0]
+                .nodeValue; //두번앞에 있는 첫번째 자식의 노드밸류를 갖다주세요. 엘리먼트들의 하위요소들을 가져와야 노드밸류를 볼수있다.
+                this.parentNode.parentNode.remove();
+            }
+            btn.append(text);
+            td = document.createElement('td');
+            td.append(btn);
+            tr.append(td);
+
+            let tbl = document.getElementById('tbl');
+            tbl.append(tr);
+
+            inputs[0].value = ""; //한건 입력하고나면 지워지도록
+            inputs[1].value = "";
+            inputs[2].value = "";
+        };
+    </script>
+</body>
+
+</html>
