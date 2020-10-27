@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax</title>
+    <script>
+        let data, length;
+        let xhtp = new XMLHttpRequest(); //페이지 요청
+        xhtp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log(this.responseXML);
+                data = this.responseXML;
+                data = data.getElementsByTagName('record');
+
+                length = data.length;
+                showRecord(1); //인덱스가 1인 값을 보고싶다
+            }
+        }
+        xhtp.open('get', 'dataset.xml');
+        xhtp.send();
+
+        function showRecord(order) { //함수 정의
+            let tag = document.createElement('ul');
+            for (let i = 0; i < data[order].children.length; i++) {
+                console.log(data[order].children[i].innerHTML);
+                let li = document.createElement('li');
+                let text = document.createTextNode(data[order].children[i].innerHTML);
+                li.append(text);
+                tag.append(li);
+            }
+            let show = document.getElementById('show');
+            show.children[0].remove(); //show.children[0]=li 지우고
+            show.append(tag); //새로만든것을 붙여달라
+        }
+    </script>
+</head>
+
+<body>
+    <button id="prev">
+        <<</button> <button id="next">>>
+    </button>
+    <div id="show">
+        <li></li>
+    </div>
+    
+
+    <script>
+        let i = 1; //i 초기값 안주면 NAN 에러 뜸
+        let prev = document.getElementById('prev');
+        prev.onclick = function () {
+            if (i > 0);
+            i--;
+            showRecord(i);
+        }
+        let next = document.getElementById('next');
+        next.addEventListener('click', function () {
+            if (i < length - 1)
+                i++;
+            showRecord(i)
+        })
+    </script>
+</body>
+
+</html>

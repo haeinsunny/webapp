@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xmlset.html</title>
+</head>
+
+<body>
+    <div id="show"></div>
+    <script>
+        //가지고 온 데이터들을 테이블에 뿌리기 
+        //Ajax:비동기 처리방식 (처리하는 방식이 비동기 방식. XMLHttpRequest() 얘가 이 처리기능을 맡아서 함)
+        // console.log('first');
+        let xhtp = new XMLHttpRequest();
+
+        xhtp.onreadystatechange = function () { //on:뭔가를 실행할때 상태를 바꿔주는것
+            if (xhtp.readyState == 4 && xhtp.status == 200) { //4단계까지 실행되고 200정상으로 열렸을때
+                let data = (xhtp.responseXML); //위의 값이 정상일때, 결과값을 가져와라
+                console.log(data);
+
+                data = data.getElementsByTagName('record'); //record 기준으로
+                loadXml(data); //함수호출
+                // console.log(data);
+                // console.log(data[0]);
+                // console.log(data[0].children[0]);
+                // console.log(data[0].children[0].firstChild.nodeValue);
+                // for (let i = 0; i < data.length; i++)
+                //     for (let j = 0; j < data[i].children.length; j++)
+                //         console.log(data[i].children[j].innerHTML) //.innerHTML: 엘리먼트 방식으로 값을 가져올떄
+                //노드로 값 가져올땐 child 관계방식으로 불러옴 
+
+                // console.log('id:' + data[0].children[0].firstChild.nodeValue);
+                // console.log('fn:' + data[0].children[0].firstChild.nodeValue);
+                // console.log('ln:' + data[0].children[2].firstChild.nodeValue);
+            }
+        }
+        xhtp.open('get', 'dataset.xml'); //open메소드로 MOCK_DATA.json파일을 요청한다
+        xhtp.send();
+
+        function loadXml(data) {           
+            //table생성
+            let table = document.createElement('table')
+            table.setAttribute('border', '1');
+
+            let fields = ['id', 'first_name', 'last_name', 'e_mail', 'gender']
+            let tr = document.createElement('tr');
+
+            //th생성
+            for (field of fields) {
+                let th = document.createElement('th');
+                let text = document.createTextNode(field);
+                th.append(text);
+                tr.append(th);
+            }
+            table.append(tr);
+            let show = document.getElementById('show');
+            show.append(table);
+            
+            //td생성
+            for (let i = 0; i < data.length; i++){
+                tr = document.createElement('tr');
+                // tr.setAttribute('id', data[0].chidren[0].nodeValue);
+                for (let j = 0; j < data[i].children.length -1; j++){
+                td = document.createElement('td');
+                text = document.createTextNode(data[i].children[j].innerHTML);
+                td.append(text);
+                tr.append(td);
+                }
+                table.append(tr);
+            }
+            
+            console.log(table);
+        }
+
+
+
+        // function loadJson(data) {
+        //     let fields = ['id', 'first_name', 'last_name', 'e_mail', 'gender']
+        //     let table = document.createElement('table')
+        //     table.setAttribute('border', '1');
+
+        //     let tr = document.createElement('tr');
+        //     for (field of fields) {
+        //         let th = document.createElement('th');
+        //         let text = document.createTextNode(field.replace('_', '').toUpperCase());
+        //         th.append(text);
+        //         tr.append(th);
+        //     }
+        //     table.append(tr);
+
+        //     data.forEach(function (item, idx) {
+        //         tr = document.createElement('tr');
+        //         tr.setAttribute('id', item.id);
+        //         // td정보 생성.
+        //         for (field of fields) {
+        //             td = document.createElement('td');
+        //             text = document.createTextNode(item[field]);
+        //             td.append(text);
+        //             tr.append(td);
+        //         }
+        //         table.append(tr);
+        //     });
+        //     let show = document.getElementById('show');
+        //     show.append(table);
+        // }
+
+        // console.log('last');
+    </script>
+</body>
+
+</html>
